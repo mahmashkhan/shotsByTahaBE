@@ -2,6 +2,10 @@ const router = require("express").Router();
 const { Aboutme } = require("./controller/About/Aboutme");
 const { getAbout } = require("./controller/About/getAbout");
 const { createCategory, getAllCategory } = require("./controller/categories/category");
+const { addHighlight } = require("./controller/Highlights/addHighlights");
+const { getHighlight } = require("./controller/Highlights/getHighlights");
+const { getLandingVideo } = require("./controller/landingVideo/getLandingVideo");
+const { landing } = require("./controller/landingVideo/landingVideo");
 const { portfolio } = require("./controller/portfolio/addPortfolio");
 const { getPortfolio, getPortfolioById } = require("./controller/portfolio/getPortfolio");
 
@@ -14,4 +18,13 @@ router.get('/get/portfolio/:id', getPortfolioById);
 router.post('/add/portfolio', portfolio);
 router.post('/create/category', createCategory);
 router.get('/get/category', getAllCategory);
+
+//LandingVideo  
+router.post('/add/landing', landing);
+router.get('/get/landing', getLandingVideo);
+
+//highlights
+router.post('/add/highlight', addHighlight)
+router.get('/get/highlight', getHighlight)
+
 module.exports = router
