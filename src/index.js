@@ -4,8 +4,8 @@ const { getAbout } = require("./controller/About/getAbout");
 const { createCategory, getAllCategory } = require("./controller/categories/category");
 const { addHighlight } = require("./controller/Highlights/addHighlights");
 const { getHighlight } = require("./controller/Highlights/getHighlights");
-const { getLandingVideo } = require("./controller/landingVideo/getLandingVideo");
-const { landing } = require("./controller/landingVideo/landingVideo");
+const { getLandingImage } = require("./controller/landingVideo/getLandingImage");
+const { landing } = require("./controller/landingVideo/landingImage");
 const { portfolio } = require("./controller/portfolio/addPortfolio");
 const { getPortfolio, getPortfolioById } = require("./controller/portfolio/getPortfolio");
 
@@ -21,7 +21,7 @@ router.get('/get/category', getAllCategory);
 
 //LandingVideo  
 router.post('/add/landing', landing);
-router.get('/get/landing', getLandingVideo);
+router.get('/get/landing', getLandingImage);
 
 //highlights
 router.post('/add/highlight', addHighlight)
