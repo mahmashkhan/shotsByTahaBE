@@ -10,7 +10,7 @@ const addHighlight = async (req, res) => {
 
     const updatedHighlight = await Highlight.findOneAndUpdate(
       {},
-      { highlight }, // ✅ Use the correct field name
+      { highlight },
       {
         new: true,
         upsert: true,
