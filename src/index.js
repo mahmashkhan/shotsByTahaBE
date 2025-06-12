@@ -9,12 +9,17 @@ const { landing } = require("./controller/landingVideo/landingImage");
 const { portfolio } = require("./controller/portfolio/addPortfolio");
 const { getPortfolio, getPortfolioById } = require("./controller/portfolio/getPortfolio");
 const { editPortfolio } = require('./controller/portfolio/editPortfolio');
-const {deletetheportfolio}= require('./controller/portfolio/deletePortfolio');
+const { deletetheportfolio } = require('./controller/portfolio/deletePortfolio');
 const { editAbout } = require("./controller/About/editAbout");
 const { deleteAbout } = require("./controller/About/deleteAbout");
+const { addTeam, upload } = require('./controller/team/addTeam')
+const { getTeam } = require('./controller/team/getTeam')
+const { editTeam, updatedUpload } = require('./controller/team/editTeam')
+const { deleteTeam } = require('./controller/team/deleteTeam');
+const { contact } = require('./controller/Contact/contact');
 
 //About
-router.get('/about', getAbout) 
+router.get('/about', getAbout)
 router.post('/add/about', Aboutme)
 router.put('/edit/about/:id', editAbout)
 router.delete('/delete/about/:id', deleteAbout)
@@ -35,4 +40,12 @@ router.get('/get/landing', getLandingImage);
 router.post('/add/highlight', addHighlight)
 router.get('/get/highlight', getHighlight)
 
+//Team
+router.post('/add/team', upload.single('image'), addTeam)
+router.get('/get/team', getTeam)
+router.put('/edit/team/:id', updatedUpload.single('image'), editTeam)  
+router.delete('/delete/team/:id', deleteTeam)
+
+//Contact
+router.post('/contact',contact)
 module.exports = router

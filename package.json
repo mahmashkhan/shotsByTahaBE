@@ -10,8 +10,12 @@
   "keywords": [],
   "description": "",
   "dependencies": {
+    "config": "^4.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "mongodb": "^6.16.0",
-    "mongoose": "^8.15.0"
+    "mongoose": "^8.15.0",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.3"
   }
 }
