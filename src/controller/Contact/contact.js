@@ -19,10 +19,9 @@ const contact = async (req, res) => {
                 pass: process.env.ADMIN_PASSWORD
             }
         });   
-
         const mailOptions = {
             from: email,
-            to: "mahmashak08@gmail.com", // Admin email to receive messages
+            to: "mahmashak08@gmail.com",
             subject: `New Contact Message from ${name}`,
             html: `
                 <h3>Contact Message</h3>
