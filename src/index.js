@@ -17,6 +17,10 @@ const { getTeam } = require('./controller/team/getTeam')
 const { editTeam, updatedUpload } = require('./controller/team/editTeam')
 const { deleteTeam } = require('./controller/team/deleteTeam');
 const { contact } = require('./controller/Contact/contact');
+const { addPackages } = require('./controller/packages/addPackage')
+const { editPackages } = require('./controller/packages/editPackage');
+const { getPackages,getPackagesByCategory } = require("./controller/packages/getPackage");
+const { deletePackage } = require("./controller/packages/deletePackage");
 
 //About
 router.get('/about', getAbout)
@@ -43,9 +47,16 @@ router.get('/get/highlight', getHighlight)
 //Team
 router.post('/add/team', upload.single('image'), addTeam)
 router.get('/get/team', getTeam)
-router.put('/edit/team/:id', updatedUpload.single('image'), editTeam)  
+router.put('/edit/team/:id', updatedUpload.single('image'), editTeam)
 router.delete('/delete/team/:id', deleteTeam)
 
+//Packages
+router.post('/add/package', addPackages)
+router.put('/edit/package/:id', editPackages)
+router.get('/get/package', getPackages)
+router.get('/get/package/:slug', getPackagesByCategory)
+router.delete('/delete/package/:id', deletePackage)
+
 //Contact
-router.post('/contact',contact)
+router.post('/contact', contact)
 module.exports = router
