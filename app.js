@@ -14,7 +14,7 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }))
 
-mongoose.connect('mongodb://localhost:27017/', {
+mongoose.connect('mongodb+srv://mahmashak08:Legend786sbt@cluster0.6oflxia.mongodb.net/TAHA_PORTFOLIO?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -25,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/', {
 
 app.use('/api', Routes)
 
-app.listen(port, () => {
+app.listen(port, () => {  
     console.log(`server is listening at ${port}`);
 })
 // d892DgzHlxATDPCh 

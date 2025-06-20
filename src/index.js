@@ -4,8 +4,8 @@ const { getAbout } = require("./controller/About/getAbout");
 const { createCategory, getAllCategory } = require("./controller/categories/category");
 const { addHighlight } = require("./controller/Highlights/addHighlights");
 const { getHighlight } = require("./controller/Highlights/getHighlights");
-const { getLandingImage } = require("./controller/landingVideo/getLandingImage");
-const { landing } = require("./controller/landingVideo/landingImage");
+const { getLandingImage } = require("./controller/landingImages/getLandingImage");
+const { landingUpload, landingImage } = require("./controller/landingImages/landingImage");
 const { portfolio } = require("./controller/portfolio/addPortfolio");
 const { getPortfolio, getPortfolioById } = require("./controller/portfolio/getPortfolio");
 const { editPortfolio } = require('./controller/portfolio/editPortfolio');
@@ -21,7 +21,12 @@ const { addPackages } = require('./controller/packages/addPackage')
 const { editPackages } = require('./controller/packages/editPackage');
 const { getPackages,getPackagesByCategory } = require("./controller/packages/getPackage");
 const { deletePackage } = require("./controller/packages/deletePackage");
+const { createAdmin } = require("./controller/AdminLogin/createAdmin");
+const { Login } = require("./controller/AdminLogin/Login");
 
+//Admin
+router.post('/sbt/admin/signup', createAdmin)
+router.post('/sbt/admin/login', Login)
 //About
 router.get('/about', getAbout)
 router.post('/add/about', Aboutme)
@@ -37,7 +42,7 @@ router.post('/create/category', createCategory);
 router.get('/get/category', getAllCategory);
 
 //LandingVideo  
-router.post('/add/landing', landing);
+router.post('/add/landing',landingUpload.array('images', 10), landingImage);
 router.get('/get/landing', getLandingImage);
 
 //highlights

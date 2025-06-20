@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
-const landingImageSchema = new mongoose.Schema(
-    {
+const landingImageSchema = new mongoose.Schema({
+  images: {
+    type: [String], // Array of base64 image strings
+    required: true
+  }
+});
 
-        landingImage: { type: Array, require: true },
-    }
-)
-module.exports = mongoose.model('landingImage', landingImageSchema)
+module.exports = mongoose.model('Landing', landingImageSchema);
